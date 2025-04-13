@@ -12,7 +12,7 @@ import RecipeIngredient from './models/recipeIngredient.js';
 import FavoriteRecipe from "./models/favoriteRecipe.js";
 import Follower from "./models/follower.js";
 
-const sequelize = new Sequelize(config);
+const sequelize = new Sequelize(config.development);
 
 const models = {
     User: User(sequelize),
