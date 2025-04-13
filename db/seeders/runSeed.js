@@ -1,11 +1,22 @@
 import { Model as Testimonial, Sequelize } from "sequelize";
 import { readFileSync } from "fs";
-const areasSource = JSON.parse(readFileSync(new URL("./initial-data/areas.json", import.meta.url)));
-import categoriesSource from "./initial-data/categories.json" assert { type: "json" };
-import ingredientsSource from "./initial-data/ingredients.json" assert { type: "json" };
-import recipesSource from "./initial-data/recipes.json" assert { type: "json" };
-import testimonialsSource from "./initial-data/testimonials.json" assert { type: "json" };
-import usersSource from "./initial-data/users.json" assert { type: "json" };
+import { fileURLToPath } from "url";
+import path from "path";
+const categoriesSource = JSON.parse(
+    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/categories.json"), "utf8")
+);
+const ingredientsSource = JSON.parse(
+    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/ingredients.json"), "utf8")
+);
+const recipesSource = JSON.parse(
+    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/recipes.json"), "utf8")
+);
+const testimonialsSource = JSON.parse(
+    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/testimonials.json"), "utf8")
+);
+const usersSource = JSON.parse(
+    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/users.json"), "utf8")
+);
 import passwordManager from "../../helpers/passwordManager.js";
 import db from "../index.js";
 
