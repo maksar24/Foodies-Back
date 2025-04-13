@@ -1,5 +1,6 @@
 import { Model as Testimonial, Sequelize } from "sequelize";
-import areasSource from "./initial-data/areas.json" assert { type: "json" };
+import { readFileSync } from "fs";
+const areasSource = JSON.parse(readFileSync(new URL("./initial-data/areas.json", import.meta.url)));
 import categoriesSource from "./initial-data/categories.json" assert { type: "json" };
 import ingredientsSource from "./initial-data/ingredients.json" assert { type: "json" };
 import recipesSource from "./initial-data/recipes.json" assert { type: "json" };
