@@ -1,22 +1,14 @@
 import { Model as Testimonial, Sequelize } from "sequelize";
 import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
 import path from "path";
-const categoriesSource = JSON.parse(
-    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/categories.json"), "utf8")
-);
-const ingredientsSource = JSON.parse(
-    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/ingredients.json"), "utf8")
-);
-const recipesSource = JSON.parse(
-    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/recipes.json"), "utf8")
-);
+const areasSource = JSON.parse(readFileSync(path.resolve(__dirname, "./initial-data/areas.json"), "utf8"));
+const categoriesSource = JSON.parse(readFileSync(path.resolve(__dirname, "./initial-data/categories.json"), "utf8"));
+const ingredientsSource = JSON.parse(readFileSync(path.resolve(__dirname, "./initial-data/ingredients.json"), "utf8"));
+const recipesSource = JSON.parse(readFileSync(path.resolve(__dirname, "./initial-data/recipes.json"), "utf8"));
 const testimonialsSource = JSON.parse(
-    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/testimonials.json"), "utf8")
+    readFileSync(path.resolve(__dirname, "./initial-data/testimonials.json"), "utf8")
 );
-const usersSource = JSON.parse(
-    readFileSync(path.resolve(fileURLToPath(import.meta.url), "./initial-data/users.json"), "utf8")
-);
+const usersSource = JSON.parse(readFileSync(path.resolve(__dirname, "./initial-data/users.json"), "utf8"));
 import passwordManager from "../../helpers/passwordManager.js";
 import db from "../index.js";
 
